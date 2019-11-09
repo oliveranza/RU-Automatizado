@@ -37,9 +37,12 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET, "/").permitAll()
 		.anyRequest().authenticated()
 		.and()
-		.formLogin()
+		.formLogin().usernameParameter("matricula").passwordParameter("senha").loginPage("/login").defaultSuccessUrl("/gerenciar", true)
 		.permitAll()
-		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+		.and()
+		.logout()
+		.logoutSuccessUrl("/")
+		.logoutUrl("/logout").permitAll();
 	}
 	
 	@Override

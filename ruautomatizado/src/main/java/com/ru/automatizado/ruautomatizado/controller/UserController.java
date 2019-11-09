@@ -12,13 +12,6 @@ import com.ru.automatizado.ruautomatizado.security.MyUserDetailService;
 
 public class UserController {
 	
-	@Autowired
-	private MyUserDetailService usuarioService;
-
-	@RequestMapping("/login")
-	public String login() {
-		return "TelaLogin";
-	}
 	@GetMapping("/login")
 	public String root() {
 		return "TelaLogin";
@@ -26,10 +19,10 @@ public class UserController {
 
 	@GetMapping("/gerenciar")
 	public String gerenciar() {
-		return "Gerenciar";
+		return "Inicio";
 	}
 
-	@GetMapping("/new-user")
+/*	@GetMapping("/new-user")
 	public String newUser() {
 		Funcionario usuario = new Funcionario();
 		usuario.setMatricula("admin");
@@ -37,5 +30,5 @@ public class UserController {
 		usuario.setSenha("admin");
 		usuarioService.save(usuario);
 		return usuario.toString();
-	}
+	}*/
 }
