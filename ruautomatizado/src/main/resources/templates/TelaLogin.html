@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>RU Automatizado - Login</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+	<nav class="navbar navbar-light" style="background-color: #C0C0C0;">
+
+		<span class="navbar-text" id="titulo">Restaurante
+			universitário automatizado </span> 
+			<a class="btn btn-link aw-link-card"
+			href="/">Voltar para o inicio</a>
+
+	</nav>
+	<div class="alert alert-danger" role="alert" th:if="${param.error}">Dados
+		inválidos!</div>
+
+	<div th:if="${param.logout}">You have been logged out.</div>
+	<div class="container">
+		<div class="card text-center border-secondary mb-3">
+			<div class="card-header">Acesso ao sistema</div>
+			<div class="card-body">
+				<h6 class="card-title"></h6>
+				<form th:action="@{/login}" method="post">
+					<div class="form-group col-md-6 offset-md-3">
+						<label for="matricula">Usuário:</label> <input type="text"
+							class="form-control" id="matriculaa" placeholder="Matrícula"
+							name="matricula">
+					</div>
+					<div class="form-group col-md-6 offset-md-3">
+						<label for="senha">Senha:</label> <input type="password"
+							class="form-control" id="senhaa" placeholder="Senha" name="senha">
+					</div>
+					<button id="acess" type="submit" class="btn btn-info col-md-6">Acessar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="/js/jquery-3.4.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

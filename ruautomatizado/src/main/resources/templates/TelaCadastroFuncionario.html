@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>RU Automatizado - Cadastro de Funcionário</title>
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+
+</head>
+<body>
+
+	<nav class="navbar navbar-dark bg-dark">
+		<ul class="nav nav-pills nav-fill navbar-dark">
+			<li class="nav-item"><a class="nav-link"
+				href="/gerenciar">Início</a></li>
+			<li class="nav-item"><a class="nav-link active"
+				href="/funcionario">Funcionários</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Estudantes</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="/login">Sair</a>
+			</li>
+		</ul>
+	</nav>
+	<br>
+	<div class="container">
+		<div class="card text-center border-secondary mb-3">
+
+			<div class="card">
+				<h5 class="card-header">Cadastro de Funcionário</h5>
+				<div class="card-body">
+
+					<form method="post" action="/funcionario/cadastrar"
+						th:object="${funcionario}">
+
+						<div class="alert alert-success" role="alert"
+							th:if="${!#strings.isEmpty(mensagem)}" th:text="${mensagem}">
+						</div>
+
+						<div class="alert alert-danger" role="alert"
+							th:if="${#fields.hasAnyErrors()}">
+							<div th:each="e : ${#fields.detailedErrors()}">
+								<span th:text="${e.message}"></span>
+							</div>
+						</div>
+
+						<div class="form-group row"
+							th:classappend="${#fields.hasErrors('matricula')} ? 'form-group row has-danger'">
+							<label for="inputMatricula" class="col-sm-2 col-form-label">Matrícula:</label>
+							<div class="col-sm-10">
+								<input type="number" class="form-control" id="inputMatricula"
+									placeholder="Matrícula" th:field="*{matricula}" />
+							</div>
+						</div>
+						<div class="form-group row"
+							th:classappend="${#fields.hasErrors('senha')} ? 'form-group row has-danger'">
+							<label for="inputPassword3" class="col-sm-2 col-form-label">Senha:</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" id="inputPassword3"
+									placeholder="Senha" th:field="*{senha}" />
+							</div>
+						</div>
+						<div class="form-group row"
+							th:classappend="${#fields.hasErrors('nome')} ? 'form-group row has-danger'">
+							<label for="inputNome" class="col-sm-2 col-form-label">Nome:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="inputNome"
+									placeholder="Nome" th:field="*{nome}" />
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-sm-12">
+								<button type="submit" class="btn btn-info col-md-4">Cadastrar</button>
+								<a class="btn btn-outline-info col-md-4" href="/funcionario">Voltar</a>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</body>
+</html>

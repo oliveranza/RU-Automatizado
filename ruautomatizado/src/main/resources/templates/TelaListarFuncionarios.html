@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>RU Automatizado - Funcionários</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link href="/css/styleListagem.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-dark">
+		<ul class="nav nav-pills nav-fill navbar-dark">
+			<li class="nav-item"><a class="nav-link" href="/gerenciar">Início</a></li>
+			<li class="nav-item"><a class="nav-link active"
+				href="/funcionario">Funcionários</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Estudantes</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="/login">Sair</a>
+			</li>
+		</ul>
+	</nav>
+	<div class= "card" >
+		<div class= "card-header" >
+			<div class="clearfix">
+				<h5 class="card-title card-funcionario-titulo" >Lista de funcionários</h5>
+				<a class="btn btn-link card-funcionario-novo" href="/funcionario/cadastro">Cadastrar funcionário</a>
+			</div>
+		</div>
+			
+		<div class="card-body">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Matrícula</th>
+						<th scope="col">Nome</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="funcionario: ${allFuncionarios}">
+						<td th:text="${funcionario.matricula}">1</td>
+						<td th:text="${funcionario.nome}"></td>
+						<td class="text-center">
+						
+						</td>
+					</tr>
+					<tr>
+						<td colspan=3 th:if="${#lists.isEmpty(allFuncionarios)}">Nenhum funcionário foi encontrado</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
