@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="UTF-8" />
 <title>RU Automatizado - Funcionários</title>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
 <link href="/css/styleListagem.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="/css/fontello.css">
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark">
@@ -41,7 +43,12 @@
 						<td th:text="${funcionario.matricula}">1</td>
 						<td th:text="${funcionario.nome}"></td>
 						<td class="text-center">
-						
+							<a class="btn btn-primary btn-xs" th:href="@{/funcionario/{matricula}(matricula=${funcionario.matricula})}">
+								<i class="icon-pencil"></i>
+							</a>
+							<a class="btn btn-primary btn-xs">
+								<i class="icon-trash"></i>
+							</a>
 						</td>
 					</tr>
 					<tr>
@@ -52,4 +59,8 @@
 		</div>
 	</div>
 </body>
+
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>		
+
 </html>

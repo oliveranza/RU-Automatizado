@@ -27,10 +27,10 @@
 		<div class="card text-center border-secondary mb-3">
 
 			<div class="card">
-				<h5 class="card-header">Cadastro de Funcionário</h5>
+				<h5 class="card-header">Cadastro e edição de Funcionários</h5>
 				<div class="card-body">
 
-					<form method="post" action="/funcionario/cadastrar"
+					<form method="post" action="/funcionario"
 						th:object="${funcionario}">
 
 						<div class="alert alert-success" role="alert"
@@ -71,7 +71,7 @@
 
 						<div class="form-group row">
 							<div class="col-sm-12">
-								<button type="submit" class="btn btn-info col-md-4">Cadastrar</button>
+								<button type="submit" class="btn btn-info col-md-4">Salvar</button>
 								<a class="btn btn-outline-info col-md-4" href="/funcionario">Voltar</a>
 							</div>
 						</div>
@@ -85,5 +85,7 @@
 	</div>
 
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery-3.4.1.min.js"></script>				
+
 </body>
 </html>
